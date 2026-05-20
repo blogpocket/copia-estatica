@@ -5,7 +5,7 @@
  * Version:           1.8
  * Requires at least: 5.6
  * Requires PHP:      7.4
- * Author:            Tu Nombre
+ * Author:            A. Cambronero (Blogpocket.es)
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       copia-estatica
