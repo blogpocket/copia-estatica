@@ -10,7 +10,7 @@ Este plugin nació como una herramienta ad-hoc para archivar [Blogpocket](https:
 
 El resultado: un plugin que no se limita a volcar HTML, sino que entiende cómo está construido WordPress, qué peculiaridades arrastran los contenidos antiguos, y cómo dejar una copia que se pueda servir tal cual desde cualquier sitio.
 
-Si quieres la crónica completa del proceso (incluida la parte de optimizar a WebP para que la copia entre en GitHub Pages), está en el post original: [Cómo generé una copia estática de Blogpocket](https://blogpocket.com/copia-estatica-local/) *(reemplaza por tu URL real)*.
+Si quieres la crónica completa del proceso (incluida la parte de optimizar a WebP para que la copia entre en GitHub Pages), hay un artículo en Blogpocket.es.
 
 ## Qué hace
 
