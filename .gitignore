@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Composer (si se añade en el futuro)
+/vendor/
+composer.lock
+
+# Node (si se añade en el futuro)
+/node_modules/
+npm-debug.log*
+
+# PHPCS local
+/.phpcs/
+.phpcs.xml.cache
+
+# Logs
+*.log
+
+# Backups y temporales
+*.bak
+*.orig
+*.tmp
+*.swp
+
+# Caché de cobertura/tests
+/.phpunit.result.cache
+/coverage/
