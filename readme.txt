@@ -1,5 +1,5 @@
 === Copia Estática Local ===
-Contributors: yourusername
+Contributors: blogpocket
 Tags: static, export, archive, html, backup
 Requires at least: 5.6
 Tested up to: 6.9
