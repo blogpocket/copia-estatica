@@ -12,8 +12,8 @@ El resultado: un plugin que no se limita a volcar HTML, sino que entiende cómo 
 
 Si quieres la crónica completa del proceso, está documentada en dos posts:
 
-- [Cómo generé una copia estática de Blogpocket](URL-POST-1) — primera parte: HTML, imágenes, enlaces.
-- [Cómo recuperé los PDFs perdidos](URL-POST-2) — segunda parte: PDFs y biblioteca multimedia.
+- [Cómo generé una copia estática de Blogpocket](https://blogpocket.es/articulo/como-genere-una-copia-estatica-de-blogpocket-y-la-deje-en-209-mb-con-webp/)) — primera parte: HTML, imágenes, enlaces.
+- [Cómo recuperé los PDFs perdidos](https://blogpocket.es/articulo/como-automatizar-la-migracion-de-pdfs-en-una-copia-estatica-de-wordpress/) — segunda parte: PDFs y biblioteca multimedia.
 
 ## Qué hace
 
