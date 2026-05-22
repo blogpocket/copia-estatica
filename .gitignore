@@ -21,11 +21,11 @@ Desktop.ini
 .project
 .settings/
 
-# Composer (si se añade en el futuro)
+# Composer
 /vendor/
 composer.lock
 
-# Node (si se añade en el futuro)
+# Node
 /node_modules/
 npm-debug.log*
 
@@ -42,6 +42,6 @@ npm-debug.log*
 *.tmp
 *.swp
 
-# Caché de cobertura/tests
+# Caché de tests
 /.phpunit.result.cache
 /coverage/

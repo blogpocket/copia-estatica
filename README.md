@@ -6,11 +6,14 @@ La copia resultante se puede servir desde cualquier hosting plano (incluso desde
 
 ## De dónde viene
 
-Este plugin nació como una herramienta ad-hoc para archivar [Blogpocket](https://blogpocket.com) después de años de publicaciones. Lo que empezó como una tarde de exportación acabó siendo un viaje con varias paradas: imágenes enterradas que reventaban la memoria de PHP, JPEGs antiguos en espacio CMYK que ninguna librería de conversión aceptaba, enlaces hardcodeados a un dominio que el blog tuvo en el pasado... cada bache se convirtió en una mejora del código.
+Este plugin nació como una herramienta ad-hoc para archivar [Blogpocket](https://blogpocket.com) después de años de publicaciones. Lo que empezó como una tarde de exportación acabó siendo un viaje con varias paradas: imágenes enterradas que reventaban la memoria de PHP, JPEGs antiguos en espacio CMYK que ninguna librería de conversión aceptaba, enlaces hardcodeados a un dominio que el blog tuvo en el pasado, PDFs incrustados con visores Gutenberg, archivos huérfanos en la biblioteca multimedia... cada bache se convirtió en una mejora del código o en un script auxiliar.
 
-El resultado: un plugin que no se limita a volcar HTML, sino que entiende cómo está construido WordPress, qué peculiaridades arrastran los contenidos antiguos, y cómo dejar una copia que se pueda servir tal cual desde cualquier sitio.
+El resultado: un plugin que no se limita a volcar HTML, sino que entiende cómo está construido WordPress, qué peculiaridades arrastran los contenidos antiguos, y cómo dejar una copia que se pueda servir tal cual desde cualquier sitio. Acompañado de cuatro scripts auxiliares para las tareas que rodean a la generación.
 
-Si quieres la crónica completa del proceso (incluida la parte de optimizar a WebP para que la copia entre en GitHub Pages), hay un [artículo en Blogpocket.es](https://blogpocket.es/articulo/como-genere-una-copia-estatica-de-blogpocket-y-la-deje-en-209-mb-con-webp/).
+Si quieres la crónica completa del proceso, está documentada en dos posts:
+
+- [Cómo generé una copia estática de Blogpocket](URL-POST-1) — primera parte: HTML, imágenes, enlaces.
+- [Cómo recuperé los PDFs perdidos](URL-POST-2) — segunda parte: PDFs y biblioteca multimedia.
 
 ## Qué hace
 
@@ -20,15 +23,15 @@ Si quieres la crónica completa del proceso (incluida la parte de optimizar a We
 - Genera índices automáticos: raíz, por año, por mes, y de páginas.
 - Aplica un CSS minimalista común a todo el archivo.
 - Procesa los posts de forma defensiva: si uno falla, los demás siguen y se reporta cuál falló.
-- Descarga las imágenes en streaming directo a disco, sin pasarlas por RAM: las imágenes grandes ya no son un problema.
+- Descarga las imágenes en streaming directo a disco: las imágenes grandes ya no son un problema.
 
 La copia se deposita en `/wp-content/uploads/copia-estatica-html/` de tu propio servidor.
 
 ## Instalación
 
-1. Descarga este repositorio como ZIP o `git clone`.
-2. Sube la carpeta `copia-estatica` al directorio `/wp-content/plugins/` de tu WordPress.
-3. Activa el plugin desde el panel de administración.
+1. Descarga el ZIP del plugin desde la última [release](https://github.com/blogpocket/copia-estatica/releases/latest).
+2. Sube la carpeta `copia-estatica` al directorio `/wp-content/plugins/` de tu WordPress, o instálalo desde **Plugins → Añadir nuevo → Subir plugin**.
+3. Actívalo desde el panel de administración.
 4. Encontrarás un nuevo menú **Copia Estática** en la barra lateral.
 
 ## Uso básico
@@ -60,14 +63,14 @@ Lista de dominios históricos del blog, separados por comas. Si tu sitio ha vivi
 define( 'CEL_EXTRA_INTERNAL_HOSTS', 'midominio-viejo.com,otro-historico.es' );
 ```
 
-Si tu blog ha vivido siempre en el mismo dominio, ignora esta constante. El plugin detecta el dominio actual automáticamente.
-
 ## Herramientas auxiliares (carpeta `tools/`)
 
-Dos scripts opcionales que cubren tareas posteriores a la generación:
+Cuatro scripts opcionales que cubren tareas posteriores a la generación:
 
-- **`tools/convertir-img-a-webp.sh`** — script bash para macOS/Linux que convierte la carpeta `/img/` entera a WebP y reescribe las referencias en los HTML. En blogs con muchas imágenes la reducción de tamaño ronda el 60-80%, suficiente para hacer la copia desplegable a GitHub Pages (1 GB de límite duro).
-- **`tools/reescribir-enlaces-internos.py`** — script Python para reescribir enlaces internos directamente sobre una copia ya generada, sin tener que regenerarla en WordPress. Útil cuando se han añadido dominios históricos al `CEL_EXTRA_INTERNAL_HOSTS` después de exportar.
+- **`tools/convertir-img-a-webp.sh`** — convierte la carpeta `/img/` a WebP, reduciendo el peso entre un 60-80%.
+- **`tools/reescribir-enlaces-internos.py`** — reescribe enlaces internos directamente sobre una copia ya generada.
+- **`tools/descargar-pdfs-y-reescribir.py`** — descarga PDFs enlazados desde posts y redirige las referencias.
+- **`tools/backup-pdfs-libreria.py`** — backup completo de PDFs de la biblioteca multimedia vía REST API.
 
 Más detalles en [`tools/README.md`](tools/README.md).
 
@@ -79,7 +82,7 @@ Más detalles en [`tools/README.md`](tools/README.md).
 
 ## Compatibilidad con WordPress.org
 
-El plugin pasa el [Plugin Check oficial de WordPress.org](https://wordpress.org/plugins/plugin-check/) sin errores en su versión 1.8. Incluye los archivos requeridos (`readme.txt` en inglés, cabecera con licencia, sanitización y escape estándar) por si en algún momento decides subirlo al directorio oficial.
+El plugin pasa el [Plugin Check oficial de WordPress.org](https://wordpress.org/plugins/plugin-check/) sin errores. Incluye los archivos requeridos (`readme.txt` en inglés, cabecera con licencia, sanitización y escape estándar) por si en algún momento decides subirlo al directorio oficial.
 
 ## Licencia
 
